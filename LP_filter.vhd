@@ -19,7 +19,7 @@ begin
 		if rising_edge(clk) then
 			if counter < 8800
 				power <= sound*sound;
-				processed_power <= processed_power + power;
+				processed_power <= processed_power + ("00000000000000" &  power);
 			elsif counter = 8800
 				filtered_power <= (processed_power + power)/8800;
 			else

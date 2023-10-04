@@ -18,13 +18,14 @@ begin
 	process(clk)
 	begin
 		if rising_edge(clk) then
-			if sample_counter = 10000000 then 
+			if sample_counter = 10000000 then
+				power <= sound*sound;
 				if time_counter < 8800
-					power <= sound*sound;
 					processed_power <= processed_power + ("00000000000000" & power);
 					time_counter <= time_counter + 1;
 				elsif counter = 8800 then
-					filtered_power <= (processed_power + power)/8800;
+					processed_power <= (processed_power + ("00000000000000" & power))/8800;
+					filtered_power <= processed_power(7 downto 0);
 					time_counter <= time_counter + 1;
 				else
 					processed_power <= 0;

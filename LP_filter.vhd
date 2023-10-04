@@ -18,7 +18,7 @@ begin
 	process(clk)
 	begin
 		if rising_edge(clk) then
-			if sample_counter = 10000000 then
+			if sample_counter = 9287981 then
 				power <= unsigned(sound*sound);
 				time_counter <= time_counter + 1;
 				sample_counter <= "000000000000000000000000";

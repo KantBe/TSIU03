@@ -12,7 +12,7 @@ architecture rtl of log2 is
 	signal signal_memory : signed(15 downto 0);
 	signal signal_process : signed(15 downto 0);
 	signal log2_wip : signed(3 downto 0);
-	signal log2_ready : std_logic;
+	signal log2_ready : std_logic := 1;
 
 begin
 	process(clk)
@@ -30,7 +30,7 @@ begin
 					log2_signal <= log2_wip;
 					log2_ready <= '1';
 				else
-					signal_process <= '0' & signal_process(15 downto 1);
+					signal_process <= '0' & signal_process(14 downto 0);
 					log2_wip <= log2_wip + 1;
 				end if;
 			end if;

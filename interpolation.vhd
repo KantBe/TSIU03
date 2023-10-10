@@ -29,14 +29,14 @@ begin
 				if sample_counter = 0 then
 					old_power_in <= memory_power_in;
 					memory_power_tmp <= power_in;
-				else if sample_counter = 1 then
+				elsif sample_counter = 1 then
 					memory_power_in <= memory_power_tmp;
 					power_to_add_tmp <= signed('0' & memory_power_in) - signed('0' & old_power_in);
-				else if sample_counter = 2 then
+				elsif sample_counter = 2 then
 					power_to_add <= power_to_add_tmp(5) & power_to_add_tmp(5) & power_to_add_tmp(5) & power_to_add_tmp(4 downto 2);
-				else if sample_counter = 639 or sample_counter = 767 or sample_counter = 896 then
+				elsif sample_counter = 639 or sample_counter = 767 or sample_counter = 896 then
 					power_signed <= power_signed + power_to_add;
-				else if sample_counter = 1023 then
+				elsif sample_counter = 1023 then
 					power_signed <= memory_power_in;
 				end if;
 

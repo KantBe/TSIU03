@@ -23,7 +23,7 @@ begin
 				if signal_in = 0 then
 					log2_signal <= "0000";
 				elsif not (signal_memory = signal_in) then
-					signal_process <= signal_in;
+					signal_process <= abs(signal_in);
 					log2_ready <= '0';
 					log2_wip <= "0000";
 				end if;

@@ -23,6 +23,9 @@ begin
 	begin
 		if rising_edge(clk) then
 			if time_counter = 1133 then
+				sample_counter <= sample_counter + 1;
+				time_counter <= (others => '0');
+
 				if sample_counter = 0 then
 					old_power_in <= memory_power_in;
 					memory_power_tmp <= power_in;

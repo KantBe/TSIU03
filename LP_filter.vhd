@@ -27,7 +27,7 @@ begin
 					processed_power <= ("00000000000" & power);
 				end if;
 
-				if sample_counter = 1023 then
+				if sample_counter = 2047 then
 					filtered_power <= processed_power(15 downto 11);
 				end if;
 			else

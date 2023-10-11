@@ -1,0 +1,232 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 16 16 264 336)
+	(text "VGA_prjt" (rect 5 0 58 14)(font "Arial" (font_size 8)))
+	(text "inst" (rect 8 304 25 316)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "fpga_clk" (rect 0 0 48 14)(font "Arial" (font_size 8)))
+		(text "fpga_clk" (rect 21 27 69 41)(font "Arial" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "KEY0" (rect 0 0 31 14)(font "Arial" (font_size 8)))
+		(text "KEY0" (rect 21 43 52 57)(font "Arial" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "b_cont[3..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
+		(text "b_cont[3..0]" (rect 21 59 88 73)(font "Arial" (font_size 8)))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "v_cont[3..0]" (rect 0 0 67 14)(font "Arial" (font_size 8)))
+		(text "v_cont[3..0]" (rect 21 75 88 89)(font "Arial" (font_size 8)))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "r_sound[4..0]" (rect 0 0 75 14)(font "Arial" (font_size 8)))
+		(text "r_sound[4..0]" (rect 21 91 96 105)(font "Arial" (font_size 8)))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "l_sound[4..0]" (rect 0 0 73 14)(font "Arial" (font_size 8)))
+		(text "l_sound[4..0]" (rect 21 107 94 121)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 16 112)(line_width 3))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "a" (rect 0 0 7 14)(font "Arial" (font_size 8)))
+		(text "a" (rect 21 123 28 137)(font "Arial" (font_size 8)))
+		(line (pt 0 128)(pt 16 128))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "b" (rect 0 0 7 14)(font "Arial" (font_size 8)))
+		(text "b" (rect 21 139 28 153)(font "Arial" (font_size 8)))
+		(line (pt 0 144)(pt 16 144))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "c" (rect 0 0 7 14)(font "Arial" (font_size 8)))
+		(text "c" (rect 21 155 28 169)(font "Arial" (font_size 8)))
+		(line (pt 0 160)(pt 16 160))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "d" (rect 0 0 7 14)(font "Arial" (font_size 8)))
+		(text "d" (rect 21 171 28 185)(font "Arial" (font_size 8)))
+		(line (pt 0 176)(pt 16 176))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "sram_data[15..8]" (rect 0 0 95 14)(font "Arial" (font_size 8)))
+		(text "sram_data[15..8]" (rect 21 187 116 201)(font "Arial" (font_size 8)))
+		(line (pt 0 192)(pt 16 192)(line_width 3))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "sram_data[7..0]" (rect 0 0 88 14)(font "Arial" (font_size 8)))
+		(text "sram_data[7..0]" (rect 21 203 109 217)(font "Arial" (font_size 8)))
+		(line (pt 0 208)(pt 16 208)(line_width 3))
+	)
+	(port
+		(pt 0 224)
+		(input)
+		(text "game_control" (rect 0 0 76 14)(font "Arial" (font_size 8)))
+		(text "game_control" (rect 21 219 97 233)(font "Arial" (font_size 8)))
+		(line (pt 0 224)(pt 16 224))
+	)
+	(port
+		(pt 248 32)
+		(output)
+		(text "HEX7[0..6]" (rect 0 0 59 14)(font "Arial" (font_size 8)))
+		(text "HEX7[0..6]" (rect 168 27 227 41)(font "Arial" (font_size 8)))
+		(line (pt 248 32)(pt 232 32)(line_width 3))
+	)
+	(port
+		(pt 248 48)
+		(output)
+		(text "HEX6[0..6]" (rect 0 0 59 14)(font "Arial" (font_size 8)))
+		(text "HEX6[0..6]" (rect 168 43 227 57)(font "Arial" (font_size 8)))
+		(line (pt 248 48)(pt 232 48)(line_width 3))
+	)
+	(port
+		(pt 248 64)
+		(output)
+		(text "hsync" (rect 0 0 35 14)(font "Arial" (font_size 8)))
+		(text "hsync" (rect 192 59 227 73)(font "Arial" (font_size 8)))
+		(line (pt 248 64)(pt 232 64))
+	)
+	(port
+		(pt 248 80)
+		(output)
+		(text "vsync" (rect 0 0 35 14)(font "Arial" (font_size 8)))
+		(text "vsync" (rect 192 75 227 89)(font "Arial" (font_size 8)))
+		(line (pt 248 80)(pt 232 80))
+	)
+	(port
+		(pt 248 96)
+		(output)
+		(text "vga_blank" (rect 0 0 57 14)(font "Arial" (font_size 8)))
+		(text "vga_blank" (rect 170 91 227 105)(font "Arial" (font_size 8)))
+		(line (pt 248 96)(pt 232 96))
+	)
+	(port
+		(pt 248 112)
+		(output)
+		(text "vga_r[7..0]" (rect 0 0 61 14)(font "Arial" (font_size 8)))
+		(text "vga_r[7..0]" (rect 166 107 227 121)(font "Arial" (font_size 8)))
+		(line (pt 248 112)(pt 232 112)(line_width 3))
+	)
+	(port
+		(pt 248 128)
+		(output)
+		(text "vga_g[7..0]" (rect 0 0 63 14)(font "Arial" (font_size 8)))
+		(text "vga_g[7..0]" (rect 164 123 227 137)(font "Arial" (font_size 8)))
+		(line (pt 248 128)(pt 232 128)(line_width 3))
+	)
+	(port
+		(pt 248 144)
+		(output)
+		(text "vga_b[7..0]" (rect 0 0 63 14)(font "Arial" (font_size 8)))
+		(text "vga_b[7..0]" (rect 164 139 227 153)(font "Arial" (font_size 8)))
+		(line (pt 248 144)(pt 232 144)(line_width 3))
+	)
+	(port
+		(pt 248 160)
+		(output)
+		(text "vga_sync" (rect 0 0 56 14)(font "Arial" (font_size 8)))
+		(text "vga_sync" (rect 171 155 227 169)(font "Arial" (font_size 8)))
+		(line (pt 248 160)(pt 232 160))
+	)
+	(port
+		(pt 248 176)
+		(output)
+		(text "sram_addr[19..0]" (rect 0 0 96 14)(font "Arial" (font_size 8)))
+		(text "sram_addr[19..0]" (rect 131 171 227 185)(font "Arial" (font_size 8)))
+		(line (pt 248 176)(pt 232 176)(line_width 3))
+	)
+	(port
+		(pt 248 192)
+		(output)
+		(text "sram_ce" (rect 0 0 49 14)(font "Arial" (font_size 8)))
+		(text "sram_ce" (rect 178 187 227 201)(font "Arial" (font_size 8)))
+		(line (pt 248 192)(pt 232 192))
+	)
+	(port
+		(pt 248 208)
+		(output)
+		(text "sram_oe" (rect 0 0 49 14)(font "Arial" (font_size 8)))
+		(text "sram_oe" (rect 178 203 227 217)(font "Arial" (font_size 8)))
+		(line (pt 248 208)(pt 232 208))
+	)
+	(port
+		(pt 248 224)
+		(output)
+		(text "vga_clk" (rect 0 0 43 14)(font "Arial" (font_size 8)))
+		(text "vga_clk" (rect 184 219 227 233)(font "Arial" (font_size 8)))
+		(line (pt 248 224)(pt 232 224))
+	)
+	(port
+		(pt 248 240)
+		(output)
+		(text "sram_we" (rect 0 0 54 14)(font "Arial" (font_size 8)))
+		(text "sram_we" (rect 173 235 227 249)(font "Arial" (font_size 8)))
+		(line (pt 248 240)(pt 232 240))
+	)
+	(port
+		(pt 248 256)
+		(output)
+		(text "sram_lb" (rect 0 0 44 14)(font "Arial" (font_size 8)))
+		(text "sram_lb" (rect 183 251 227 265)(font "Arial" (font_size 8)))
+		(line (pt 248 256)(pt 232 256))
+	)
+	(port
+		(pt 248 272)
+		(output)
+		(text "sram_ub" (rect 0 0 49 14)(font "Arial" (font_size 8)))
+		(text "sram_ub" (rect 178 267 227 281)(font "Arial" (font_size 8)))
+		(line (pt 248 272)(pt 232 272))
+	)
+	(drawing
+		(rectangle (rect 16 16 232 304))
+	)
+)

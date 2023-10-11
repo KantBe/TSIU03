@@ -81,31 +81,31 @@ begin
 		--case bal is
 		
 			 --0
-			when "1000" => l_channel_modi_int_B<=l_channel_modi_int_V;   
+			when "0000" => l_channel_modi_int_B<=l_channel_modi_int_V;   
 								r_channel_modi_int_B<= resize(0*r_channel_modi_int_V,16); -- multiply by 0
 			--1					
-			when "0111" => l_channel_modi_int_B<=l_channel_modi_int_V;  
+			when "0001" => l_channel_modi_int_B<=l_channel_modi_int_V;  
 								r_channel_modi_int_B<= shift_right(r_channel_modi_int_V,2); -- multiply by 1/4
 			-- 2					
-			when "0110" => l_channel_modi_int_B<=l_channel_modi_int_V;  
+			when "0010" => l_channel_modi_int_B<=l_channel_modi_int_V;  
 								r_channel_modi_int_B<= shift_right(r_channel_modi_int_V,1); -- multiply by 1/2
 			--3					
-			when "0101" => l_channel_modi_int_B<=l_channel_modi_int_V; 
+			when "0011" => l_channel_modi_int_B<=l_channel_modi_int_V; 
 								r_channel_modi_int_B<= resize(shift_right(r_channel_modi_int_V,2)*3,16); 
 			--4					
 			when "0100" => l_channel_modi_int_B<=l_channel_modi_int_V; 
 								r_channel_modi_int_B<=r_channel_modi_int_V;
 			--5					
-			when "0011" => l_channel_modi_int_B<=resize(shift_right(l_channel_modi_int_V,2)*3,16); -- multiply by 3/4
+			when "0101" => l_channel_modi_int_B<=resize(shift_right(l_channel_modi_int_V,2)*3,16); -- multiply by 3/4
 								r_channel_modi_int_B<=r_channel_modi_int_V; 
 			--6				
-			when "0010" => l_channel_modi_int_B<=shift_right(l_channel_modi_int_V,1); -- multiply by 1/2
+			when "0110" => l_channel_modi_int_B<=shift_right(l_channel_modi_int_V,1); -- multiply by 1/2
 								r_channel_modi_int_B<=r_channel_modi_int_V;
 			--7						
-			when "0001" => l_channel_modi_int_B<=shift_right(l_channel_modi_int_V,2); -- multiply by 1/4
+			when "0111" => l_channel_modi_int_B<=shift_right(l_channel_modi_int_V,2); -- multiply by 1/4
 								r_channel_modi_int_B<=r_channel_modi_int_V;
 			--8			
-			when "0000" => l_channel_modi_int_B<=resize(0*l_channel_modi_int_V,16); -- multiply by 0
+			when "1000" => l_channel_modi_int_B<=resize(0*l_channel_modi_int_V,16); -- multiply by 0
 								r_channel_modi_int_B<=r_channel_modi_int_V;  
 			
 			when others => l_channel_modi_int_B<=l_channel_modi_int_V; 

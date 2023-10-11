@@ -4,12 +4,12 @@ use ieee.numeric_std.all;
 
 entity log2 is
   Port ( clk : in std_logic;
-			power_in : in signed(31 downto 0);
-			log2_power : out unsigned(4 downto 0) ); -- log2(29) ~ 4.9 => 5
+			power_in : in unsigned(29 downto 0);
+			log2_power : out unsigned(4 downto 0) ); -- log2(30) ~ 4.9 => 5
 end entity;
 
 architecture rtl of log2 is
-	signal power_memory : signed(31 downto 0);
+	signal power_memory : unsigned(29 downto 0);
 	signal power_process : unsigned(29 downto 0);
 	signal log2_wip : unsigned(4 downto 0);
 	signal log2_ready : std_logic := '1';
@@ -23,7 +23,7 @@ begin
 				if power_in = 0 then
 					log2_power <= (others => '0');
 				elsif not (power_memory = power_in) then
-					power_process <= unsigned(power_in(29 downto 0));
+					power_process <= power_in;
 					log2_ready <= '0';
 					log2_wip <= (others => '0');
 				end if;

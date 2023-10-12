@@ -4,12 +4,12 @@ use ieee.numeric_std.all;
 
 entity LP_filter is
   Port ( clk : in std_logic;
-			power : in unsigned(4 downto 0);
-			filtered_power : out unsigned(4 downto 0) );
+			power : in unsigned(8 downto 0);
+			filtered_power : out unsigned(8 downto 0) );
 end entity;
 
 architecture rtl of LP_filter is
-	signal processed_power : unsigned(17 downto 0) := (others => '0'); -- 5 + 13 => 18
+	signal processed_power : unsigned(21 downto 0) := (others => '0'); -- 9 + 13 => 22
 	signal time_counter : unsigned(10 downto 0) := (others => '0'); -- 50 MHz/44100 ~ 1134 => 11
 	--signal sample_counter : unsigned(10 downto 0) := (others => '0'); -- 44100/24=1837.5 ~ 2048 => 11
 	signal sample_counter : unsigned(12 downto 0) := (others => '0'); -- 44100/10=4410 < 8192 => 13
@@ -31,7 +31,7 @@ begin
 					end if;
 
 					if sample_counter = 8191 then
-						filtered_power <= processed_power(17 downto 13);
+						filtered_power <= processed_power(21 downto 13);
 					end if;
 				end if;
 			else

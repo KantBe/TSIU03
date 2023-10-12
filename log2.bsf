@@ -20,7 +20,7 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 248 96)
+	(rect 16 16 240 96)
 	(text "log2" (rect 5 0 20 12)(font "Arial" ))
 	(text "inst" (rect 8 64 20 76)(font "Arial" ))
 	(port
@@ -38,13 +38,13 @@ applicable agreement for further details.
 		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
-		(pt 232 32)
+		(pt 224 32)
 		(output)
-		(text "log2_power[4..0]" (rect 0 0 66 12)(font "Arial" ))
-		(text "log2_power[4..0]" (rect 145 27 211 39)(font "Arial" ))
-		(line (pt 232 32)(pt 216 32)(line_width 3))
+		(text "log2_power[8..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "log2_power[8..0]" (rect 139 27 203 39)(font "Arial" ))
+		(line (pt 224 32)(pt 208 32)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 216 64)(line_width 1))
+		(rectangle (rect 16 16 208 64)(line_width 1))
 	)
 )

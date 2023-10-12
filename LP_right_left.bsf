@@ -47,15 +47,15 @@ applicable agreement for further details.
 	(port
 		(pt 208 32)
 		(output)
-		(text "FP_r[4..0]" (rect 0 0 54 14)(font "Arial" (font_size 8)))
-		(text "FP_r[4..0]" (rect 133 27 187 41)(font "Arial" (font_size 8)))
+		(text "FP_r[8..0]" (rect 0 0 54 14)(font "Arial" (font_size 8)))
+		(text "FP_r[8..0]" (rect 133 27 187 41)(font "Arial" (font_size 8)))
 		(line (pt 208 32)(pt 192 32)(line_width 3))
 	)
 	(port
 		(pt 208 48)
 		(output)
-		(text "FP_l[4..0]" (rect 0 0 51 14)(font "Arial" (font_size 8)))
-		(text "FP_l[4..0]" (rect 136 43 187 57)(font "Arial" (font_size 8)))
+		(text "FP_l[8..0]" (rect 0 0 51 14)(font "Arial" (font_size 8)))
+		(text "FP_l[8..0]" (rect 136 43 187 57)(font "Arial" (font_size 8)))
 		(line (pt 208 48)(pt 192 48)(line_width 3))
 	)
 	(drawing

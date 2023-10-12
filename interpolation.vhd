@@ -16,7 +16,7 @@ architecture rtl of interpolation is
 	signal power_to_add_tmp : signed(5 downto 0);
 	signal power_signed : signed(5 downto 0);
 	signal time_counter : unsigned(10 downto 0) := (others => '0');
-	signal sample_counter : unsigned(9 downto 0) := (others => '0');
+	signal sample_counter : unsigned(10 downto 0) := (others => '0');
 
 begin
 	process(clk)
@@ -36,9 +36,9 @@ begin
 				--	power_to_add <= power_to_add_tmp(5) & power_to_add_tmp(5) & power_to_add_tmp(5) & power_to_add_tmp(5) & power_to_add_tmp(4 downto 3);
 				--elsif sample_counter = 639 or sample_counter = 703 or sample_counter = 767 or sample_counter = 831 or sample_counter = 895 or sample_counter = 895 or sample_counter = 959 then
 					power_to_add <= power_to_add_tmp(5) & power_to_add_tmp(5) & power_to_add_tmp(5) & power_to_add_tmp(4 downto 2);
-				elsif sample_counter = 255 or sample_counter = 511 or sample_counter = 767 then
+				elsif sample_counter = 511 or sample_counter = 1023 or sample_counter = 1535 then
 					power_signed <= power_signed + power_to_add;
-				elsif sample_counter = 1023 then
+				elsif sample_counter = 2047 then
 					power_signed <= signed('0' & memory_power_in);
 				end if;
 

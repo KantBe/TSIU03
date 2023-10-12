@@ -9,10 +9,10 @@ entity LP_filter is
 end entity;
 
 architecture rtl of LP_filter is
-	signal processed_power : unsigned(13 downto 0) := (others => '0'); -- 5 + 9 => 14
+	signal processed_power : unsigned(17 downto 0) := (others => '0'); -- 5 + 13 => 18
 	signal time_counter : unsigned(10 downto 0) := (others => '0'); -- 50 MHz/44100 ~ 1134 => 11
 	--signal sample_counter : unsigned(10 downto 0) := (others => '0'); -- 44100/24=1837.5 ~ 2048 => 11
-	signal sample_counter : unsigned(8 downto 0) := (others => '0'); -- 44100/60=735 ~ 512 => 9
+	signal sample_counter : unsigned(12 downto 0) := (others => '0'); -- 44100/10=4410 < 8192 => 13
 
 begin
 	process(clk)
@@ -25,13 +25,13 @@ begin
 					sample_counter <= sample_counter + 1;
 					
 					if sample_counter > 0 then
-						processed_power <= processed_power + ("000000000" & power);
+						processed_power <= processed_power + ("0000000000000" & power);
 					else
-						processed_power <= ("000000000" & power);
+						processed_power <= ("0000000000000" & power);
 					end if;
 
-					if sample_counter = 511 then
-						filtered_power <= processed_power(13 downto 9);
+					if sample_counter = 8191 then
+						filtered_power <= processed_power(17 downto 13);
 					end if;
 				end if;
 			else

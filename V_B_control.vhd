@@ -6,7 +6,8 @@ use ieee.math_real.all;
 entity V_B_control is
 	port(rstn, clk, PS2_CLK, PS2_DAT : in std_logic ; 
 	--HEX0, HEX6 : out std_logic_vector(6 downto 0); 
-	v_cont, b_cont : out unsigned(3 downto 0));
+	v_cont, b_cont : out unsigned(3 downto 0);
+	game_cont : out std_logic);
 	--LEDR : out std_logic_vector(9 downto 0));
 end entity;
 
@@ -17,8 +18,9 @@ architecture rtl of V_B_control is
 	signal PS2_byte_en : std_logic;
 	signal scancode : std_logic_vector(9 downto 0);
 	signal E0, F0 : std_logic;	
-	signal press_b : std_logic;
+	signal press_b, press_m : std_logic;
 	signal v_sig, b_sig : unsigned(3 downto 0);
+	signal game_sig : std_logic;
 
 begin
 	
@@ -29,7 +31,7 @@ begin
 			PS2_CLK2 <= PS2_CLK;
 			PS2_CLK2_old <= PS2_CLK2;
 		end if;
-	end process;
+	end process;         
 	detected_fall <= not(PS2_CLK2) AND PS2_CLK2_old;
 
 	--Process 2: Handle shiftreg
@@ -54,13 +56,23 @@ begin
 	begin
 		v_var := v_sig;
 		b_var := b_sig;
-		if rising_edge(clk) then
+		if  rstn = '0' then
+			game_sig <= '0';
+			v_var := "0000";
+			b_var := "0100";
+			v_sig <= "0000";
+			b_sig <= "0100";
+		elsif rising_edge(clk) then
 			if PS2_byte_en = '1' then
-				if PS2_byte = "11100000" then
+				if PS2_byte = "11100000" then --make code
 					E0 <= '1';
-				elsif PS2_byte = "11110000" then
+					press_m <= '1';
+					press_b <= '0';
+				elsif PS2_byte = "11110000" then --break code
 					F0 <= '1';
 					press_b <= '1';
+					press_m <= '0';
+					--game_sig <= '0';
 				elsif press_b = '1' then
 					if PS2_byte = "01110101" and v_sig < 9 then
 						v_var := v_var + 1;
@@ -68,26 +80,31 @@ begin
 						v_var := v_var - 1;
 					elsif PS2_byte = "01110100" and b_sig < 8 then
 						b_var := b_var + 1;
-					elsif PS2_byte = "01101011" and b_sig > 0 then
+					elsif PS2_byte = "01101011" and b_sig > 0 then --01101011
 						b_var := b_var - 1;
+					elsif PS2_byte = "00101001" then
+						game_sig <= not game_sig;
 					end if;
-					scancode <= F0 & E0 & std_logic_vector(b_var) & std_logic_vector(v_var);
+					--scancode <= F0 & E0 & std_logic_vector(b_var) & std_logic_vector(v_var);
 					--scancode <= F0 & E0 & PS2_byte;
 					F0 <= '0';
 					E0 <= '0';
 					press_b <= '0';
 					v_sig <= v_var;
 					b_sig <= b_var;
+--				elsif press_m = '1' and PS2_byte = "00101001" then --00101001
+--					press_m <= '0';
+--					game_sig <= '1';
 				end if;
 			end if;
 		end if;
-		
 	end process;
 
 	--Output the last byte of the scan code
 	--LEDR <= scancode;
 	v_cont <= v_sig;
 	b_cont <= b_sig;
+	game_cont <= game_sig;
 	
 --	HEX0 <=
 --		"1111001" when scancode(3 downto 0) = "0001" else -- 1

@@ -5,13 +5,14 @@ use ieee.numeric_std.all;
 entity log2 is
   Port ( clk : in std_logic;
 			power_in : in unsigned(29 downto 0);
-			log2_power : out unsigned(8 downto 0) ); -- log2(30) ~ 4.9 => 5 ; x16 => 9
+			log2_power : out unsigned(6 downto 0) ); -- log2(30) ~ 4.9 => 5 ; x3 => 7
 end entity;
 
 architecture rtl of log2 is
 	signal power_memory : unsigned(29 downto 0);
 	signal power_process : unsigned(29 downto 0);
 	signal log2_wip : unsigned(4 downto 0);
+	signal log2_mitchell : unsigned(5 downto 0);
 	signal log2_ready : std_logic := '1';
 
 begin
@@ -29,8 +30,10 @@ begin
 				end if;
 			else
 				if power_process = 0 then
-					log2_power(8 downto 4) <= log2_wip - 1;
-					log2_power(3 downto 0) <= power_memory(3 downto 0);
+					log2_wip <= log2_wip - 1;
+					log2_mitchell(5 downto 1) <= log2_wip;
+					log2_mitchell(0) <= power_memory(0);
+					log2_power <= ('0' & log2_mitchell) + ("00" & log2_wip);
 					log2_ready <= '1';
 				else
 					power_process <= '0' & power_process(29 downto 1);

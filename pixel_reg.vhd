@@ -9,7 +9,7 @@ entity pixel_reg is
          pixcode         : out unsigned(23 downto 0);
 			up_lo_byte      : in std_logic;
 			b_cont, v_cont : in unsigned(3 downto 0);
-			r_sound, l_sound: in unsigned(4 downto 0);
+			r_sound, l_sound: in unsigned(6 downto 0);
 			a, b, c, d      : in std_logic;
          higher_byte, lower_byte : in unsigned(7 downto 0);
 			game_control : in std_logic);
@@ -83,8 +83,8 @@ begin
 			case vol is
 				when "0001" => lgth_l := total_lgth;
 									lgth_r := total_lgth;
-				when others => lgth_l := (to_integer(l_sound) * total_lgth)/8;
-									lgth_r := (to_integer(r_sound) * total_lgth)/8;
+				when others => lgth_l := (to_integer(l_sound) * total_lgth)/96;
+									lgth_r := (to_integer(r_sound) * total_lgth)/96;
 			end case;				
 			
 			--lgth_l := (abs(to_integer(l_sound)) * total_lgth)/10000;  --65535 v_max for 16 bits and map = (x -in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
@@ -113,7 +113,7 @@ begin
 				pl_bottom := bottom - lgth_l + 1;
 				
 			elsif lclk = '1' then
-				pl_bottom := pl_bottom + 2;		
+				pl_bottom := pl_bottom + 1;		
 			end if;
 			if pl_bottom < bottom - total_lgth then
 				pl_bottom := bottom - total_lgth;
@@ -124,7 +124,7 @@ begin
 			if pr_bottom > bottom - lgth_r then
 				pr_bottom := bottom - lgth_r + 1;
 			elsif lclk = '1' then
-				pr_bottom := pr_bottom + 2;
+				pr_bottom := pr_bottom + 1;
 			end if;
 			if pr_bottom < bottom - total_lgth then
 				pr_bottom := bottom - total_lgth;
@@ -140,12 +140,12 @@ begin
 			
 			if game_pos > bottom then
 				game_pos := bottom;
-			elsif game_pos < bottom - total_lgth then
-				game_pos := bottom - total_lgth;
+			elsif game_pos < bottom - total_lgth + 1 then
+				game_pos := bottom - total_lgth + 1;
 			end if;
 			
-			rwinning := hcnt > 310 and hcnt < 330 and vcnt > bottom - 20 and vcnt < bottom;
-			lwinning := hcnt > 550 and hcnt < 570 and vcnt > bottom - 20 and vcnt < bottom;
+			lwinning := hcnt > 310 and hcnt < 330 and vcnt > bottom - 20 and vcnt < bottom;
+			rwinning := hcnt > 550 and hcnt < 570 and vcnt > bottom - 20 and vcnt < bottom;
 			rgame := hcnt > 495 and hcnt < 511 and vcnt > game_pos - 15 and vcnt < game_pos;
 			lgame := hcnt > 369 and hcnt < 385 and vcnt > game_pos - 15 and vcnt < game_pos;
 			

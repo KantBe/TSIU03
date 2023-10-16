@@ -155,7 +155,6 @@ set_location_assignment PIN_E12 -to vga_r[0]
 set_location_assignment PIN_C10 -to vga_sync
 set_location_assignment PIN_C13 -to vsync
 set_location_assignment PIN_G17 -to game_cont
-set_global_assignment -name VHDL_FILE interpolation.vhd
 set_global_assignment -name VHDL_FILE power.vhd
 set_global_assignment -name VHDL_FILE LP_filter.vhd
 set_global_assignment -name VHDL_FILE log2.vhd

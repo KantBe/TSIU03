@@ -82,15 +82,15 @@ applicable agreement for further details.
 	(port
 		(pt 0 160)
 		(input)
-		(text "r_sound[8..0]" (rect 0 0 53 12)(font "Arial" ))
-		(text "r_sound[8..0]" (rect 21 155 74 167)(font "Arial" ))
+		(text "r_sound[6..0]" (rect 0 0 53 12)(font "Arial" ))
+		(text "r_sound[6..0]" (rect 21 155 74 167)(font "Arial" ))
 		(line (pt 0 160)(pt 16 160)(line_width 3))
 	)
 	(port
 		(pt 0 176)
 		(input)
-		(text "l_sound[8..0]" (rect 0 0 50 12)(font "Arial" ))
-		(text "l_sound[8..0]" (rect 21 171 71 183)(font "Arial" ))
+		(text "l_sound[6..0]" (rect 0 0 50 12)(font "Arial" ))
+		(text "l_sound[6..0]" (rect 21 171 71 183)(font "Arial" ))
 		(line (pt 0 176)(pt 16 176)(line_width 3))
 	)
 	(port
